@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+	<gid>
+		<session>
+			<search identity="b2205a4f-8fe6-4332-b411-b2922de09304">
+				<result>
+					<keywords>apple</keywords>
+					<limit>5</limit>
+				</result>
+				<result>
+					<image_filename>og-default?wid=1200&amp;hei=630&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1525370171638</image_filename>
+					<image_format></image_format>
+					<image_height>630</image_height>
+					<image_width>1200</image_width>
+					<image_link>https://as-images.apple.com/is/og-default?wid=1200&amp;hei=630&amp;fmt=jpeg&amp;qlt=95&amp;op_usm=0.5,0.5&amp;.v=1525370171638</image_link>
+					<image_description>Apple Accessories for Apple Watch, iPhone, iPad, iPod, and Mac</image_description>
+					<image_host>apple.com</image_host>
+					<image_source>https://www.apple.com/shop/accessories/all-accessories</image_source>
+					<image_thumbnail_url>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrbylTXqZAq_03XbuDe-k1A142KMDP02qKfYAaolXppirqx_04&amp;s</image_thumbnail_url>
+				</result>
+				<result>
+					<image_filename>knowledge_graph_logo.png?201606271147</image_filename>
+					<image_format>png</image_format>
+					<image_height>302</image_height>
+					<image_width>302</image_width>
+					<image_link>https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?201606271147</image_link>
+					<image_description>AirPods with Charging Case</image_description>
+					<image_host>apple.com</image_host>
+					<image_source>https://www.apple.com/shop/product/MV7N2AM/A/airpods-with-charging-case</image_source>
+					<image_thumbnail_url>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSYfgh6R22EUz-8EUwh-e68sSEFOHWXeZHuysRW_DPkhahMgdwJ&amp;s</image_thumbnail_url>
+				</result>
+				<result>
+					<image_filename>open_graph_logo.png?201809210816</image_filename>
+					<image_format>png</image_format>
+					<image_height>630</image_height>
+					<image_width>1200</image_width>
+					<image_link>https://www.apple.com/ac/structured-data/images/open_graph_logo.png?201809210816</image_link>
+					<image_description>Apple</image_description>
+					<image_host>apple.com</image_host>
+					<image_source>https://www.apple.com/</image_source>
+					<image_thumbnail_url>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrdINKE0Mf9NtmvZqt8GWSwDXjvtFGrRyy1SsO9l-zFyFLoMWg&amp;s</image_thumbnail_url>
+				</result>
+				<result>
+					<image_filename>apple8.0.png</image_filename>
+					<image_format>png</image_format>
+					<image_height>800</image_height>
+					<image_width>1200</image_width>
+					<image_link>https://cdn.vox-cdn.com/thumbor/DqZ_YBYBAVZtBF1PFi2fj4DOszM=/0x0:1280x800/1200x800/filters:focal(538x298:742x502)/cdn.vox-cdn.com/uploads/chorus_image/image/61897327/apple8.0.png</image_link>
+					<image_description>New Apple iPad rumors: bezels, notch, USB-C - The Verge</image_description>
+					<image_host>theverge.com</image_host>
+					<image_source>https://www.theverge.com/circuitbreaker/2018/10/25/18018682/ipad-rumors-new-apple-bezel-free-pro-usb-c-face-id-notch</image_source>
+					<image_thumbnail_url>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcReumo6manAe_KojZz2z7vgdzYovayGXS9OxtOfgKD8JWPOj6kW3g&amp;s</image_thumbnail_url>
+				</result>
+				<result>
+					<image_filename>1200px-Apple_logo_black.svg.png</image_filename>
+					<image_format>png</image_format>
+					<image_height>1424</image_height>
+					<image_width>1200</image_width>
+					<image_link>https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1200px-Apple_logo_black.svg.png</image_link>
+					<image_description>History of Apple Inc. - Wikipedia</image_description>
+					<image_host>en.wikipedia.org</image_host>
+					<image_source>https://en.wikipedia.org/wiki/History_of_Apple_Inc.</image_source>
+					<image_thumbnail_url>https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCVFAgcE8MMjx58ZifOsfcFC-u0g0U_DitQK-sRg0U3NkOAdNP&amp;s</image_thumbnail_url>
+				</result>
+			</search>
+		</session>
+	</gid>
