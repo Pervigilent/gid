@@ -422,25 +422,26 @@ class googleimagesdownload:
 		#check safe_search
 		safe_search_string = "&safe=active"
 		# check the args and choose the URL
-		if url:
-			url = url
-		elif similar_images:
-			print(similar_images)
-			keywordem = self.similar_images(similar_images)
-			url = 'https://www.google.com/search?q=' + keywordem + '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg'
-		elif specific_site:
-			url = 'https://www.google.com/search?q=' + quote(
-				search_term.encode('utf-8')) + '&as_sitesearch=' + specific_site + '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch' + params + '&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg'
-		else:
-			url = 'https://www.google.com/search?q=' + quote(
-				search_term.encode('utf-8')) + '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch' + params + '&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg'
+		# if url:
+		# 	url = url
+		# elif similar_images:
+		# 	print(similar_images)
+		# 	keywordem = self.similar_images(similar_images)
+		# 	url = 'https://www.google.com/search?q=' + keywordem + '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg'
+		# elif specific_site:
+		# 	url = 'https://www.google.com/search?q=' + quote(
+		# 		search_term.encode('utf-8')) + '&as_sitesearch=' + specific_site + '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch' + params + '&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg'
+		# else:
+		# 	url = 'https://www.google.com/search?q=' + quote(
+		# 		search_term.encode('utf-8')) + '&espv=2&biw=1366&bih=667&site=webhp&source=lnms&tbm=isch' + params + '&sa=X&ei=XosDVaCXD8TasATItgE&ved=0CAcQ_AUoAg'
+
+		url = 'https://www.google.com/search?q=' + quote(search_term.encode('utf-8')) + '&&tbm=isch' + params
 
 		#safe search check
 		if safe_search:
 			url = url + safe_search_string
 
 		return url
-
 
 	#measures the file size
 	def file_size(self,file_path):
@@ -588,7 +589,24 @@ class googleimagesdownload:
 
 
 	# Download Images
-	def download_image(self,image_url,image_format,main_directory,dir_name,count,print_urls,socket_timeout,prefix,print_size,no_numbering,no_download,save_source,img_src,silent_mode,thumbnail_only,format,ignore_urls):
+	def download_image(self,
+					   image_url,
+					   image_format,
+					   main_directory,
+					   dir_name,
+					   count,
+					   print_urls,
+					   socket_timeout,
+					   prefix,
+					   print_size,
+					   no_numbering,
+					   no_download,
+					   save_source,
+					   img_src,
+					   silent_mode,
+					   thumbnail_only,
+					   format,
+					   ignore_urls):
 		if not silent_mode:
 			if print_urls or no_download:
 				print("Image URL: " + image_url)
@@ -751,6 +769,24 @@ class googleimagesdownload:
 					final_object = ""
 			return final_object, end_object
 
+	# Alternate getting next item
+	def _alt_get_next_item(self, pageContent, count):
+		matching_objects = re.finditer('\\["(http(s?):)([/|.|\\w|\\s|-])*\\.(?:jpg|jpeg|gif|png|tif|tiff|bmp|svg)",\\d+,\\d+\\]', pageContent)
+		iteration = 0
+		for match in matching_objects:
+			if iteration == count:
+				requested_object = match
+			iteration = iteration + 1
+		raw_address = pageContent[requested_object.start():requested_object.end()]
+		file_name = (raw_address.split("\""))[1];
+		file_extension = re.search("\.\w{3,4}($|\?)", file_name)
+		file_extension = file_extension.group(0)
+		file_extension = file_extension.replace('.', '')
+		print(file_name)
+		print(file_extension)
+		downloadable_object = {'image_link': file_name, 'image_format': file_extension, 'image_source': file_name}
+		downloadable_object['image_thumbnail_url'] = file_name
+		return downloadable_object
 
 	# Getting all links with the help of '_images_get_next_image'
 	def _get_all_items(self, page, main_directory, dir_name, limit, arguments):
@@ -759,8 +795,10 @@ class googleimagesdownload:
 		errorCount = 0
 		i = 0
 		count = 1
+		end_content = []
 		while count < limit+1:
-			object, end_content = self._get_next_item(page)
+			#object, end_content = self._get_next_item(page)
+			object = self._alt_get_next_item(page, count)
 			if object == "no_links":
 				break
 			elif object == "":
@@ -770,7 +808,7 @@ class googleimagesdownload:
 					page = page[end_content:]
 			else:
 				#format the item for readability
-				object = self.format_object(object)
+				#object = self.format_object(object)
 				if arguments['metadata']:
 					if not arguments["silent_mode"]:
 						print("\nImage Metadata: " + str(object))
@@ -838,7 +876,6 @@ class googleimagesdownload:
 				#delay param
 				if arguments['delay']:
 					time.sleep(int(arguments['delay']))
-
 				page = page[end_content:]
 			i += 1
 		if count < limit:

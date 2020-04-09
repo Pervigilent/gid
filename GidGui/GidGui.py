@@ -115,7 +115,8 @@ class GidGui:
 		for search in self.currentSession.searches:
 			self.sessionListbox.insert(END, search.settings.keywords)
 
-	def preview(self, event):
+	#def preview(self, event):
+	def preview(self):
 		self.showPreview()
 		start_time = time.time()
 		if self.getKeyword() == "":
